@@ -20,7 +20,7 @@ function App() {
 
             {/* dashboard start */}
               <Route path='/dashboard/*' element={<Dashboard/>} />
-              
+            {/* dashboard end */} 
           </Routes>
       </BrowserRouter>
     </>

@@ -7,7 +7,7 @@ function NewJob() {
         company_name: "",
         company_detail:"",
         location: "",
-        salary:0,
+        salary:'',
         description: "",
         experience:"",
         type:'',
@@ -51,13 +51,11 @@ function NewJob() {
           experience: "",
           type: '',
           job_expiry_date: undefined
-      });
-          
+      });   
       }
       else{
           alert(result.message)
       }
-  
       };
     return (
         <div className="container-fluid">

@@ -8,9 +8,10 @@ import { BrowserRouter,Route,Routes } from 'react-router-dom';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import JobDetail from '../jobs/JobDetail';
+import ReportDetail from '../report/ReportDetail';
 function Dashboard() {
     useEffect(() => {
-        feather.replace(); // Initialize Feather icons
+        feather.replace(); 
     }, []);
     return (
         <>
@@ -38,6 +39,7 @@ function Dashboard() {
                             <Route path="all-employees" element={<AllEmployee />} />
                             <Route path="support-ticket" element={<Ticket/>} />
                             <Route path='job-detail/:jobId' element={<JobDetail/>}/>
+                            <Route path='report-detail/:reportId' element={<ReportDetail/>}/>
                         </Routes>
                         
                     </div>

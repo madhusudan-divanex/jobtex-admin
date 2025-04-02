@@ -33,7 +33,7 @@ function CreateAccount() {
    
     };
     useEffect(() => {
-      feather.replace(); // Initialize Feather icons
+      feather.replace(); 
     }, []);
   return (
     

@@ -1,6 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 function Ticket() {
+    const base_url='http://localhost:7000'
+    const [allReport, setAllReport] = useState([])
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toLocaleDateString();
+    };
+    async function getAllReport() {
+            const res = await fetch(`${base_url}/get-all-report`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const result = await res.json();
+            if (result.success) {
+                console.log(result)
+               
+                setAllReport(result.report);
+            } else {
+                alert(result.message);
+            }
+        }
+        useEffect(() => {   
+            getAllReport();
+        }, []);
   return (
     <div className="container-fluid">
                             
@@ -15,23 +41,33 @@ function Ticket() {
                                     <thead>
                                         <tr>
                                             <th  scope="col">ID</th>
-                                            <th  scope="col">Title</th>
-                                            <th  scope="col">Description</th>
-                                            <th  scope="col">Complaint by</th>
+                                            <th  scope="col">Subject</th>
+                                            <th  scope="col">Message</th>
+                                            <th  scope="col">Image</th>
                                             <th  scope="col">Posted Date</th>
                                             <th  scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr >
-                                            <td scope="row">1</td>
-                                            <td>Software Developer</td>
-                                            <td>The hr charge 5000$ For Hired me</td>
-                                            <td>Rakesh</td>
-                                            <td>10 March 2025</td>
-                                            <td><a href=""> View </a></td>
+                                    {allReport.length > 0 ? (
+                                    allReport.map((item, key) => (
+                                        <tr key={key}>
+                                            <td scope="row">{key + 1}</td>
+                                            <td>{item.subject}</td>
+                                            <td>{item.message}</td>
+                                            <td><img src={`${base_url}/${item.attachment}`} style={{ width: '120px', height: '90px' }} alt="" srcset="" />
+                                            </td>
+                                            <td>{formatDate(item.createdAt)}</td>
+                                            
+                                            <td className='d-flex justify-content-around'><Link to={`/dashboard/report-detail/${item._id}`}>View</Link> <a type='button' className='ml-5 text-danger' >Delete</a></td>
                                         </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="6">No jobs found</td>
+                                    </tr>
+                                )}
 
                                     </tbody>
                                 </table>
