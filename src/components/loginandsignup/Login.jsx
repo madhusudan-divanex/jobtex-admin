@@ -10,7 +10,7 @@ function Login() {
   const base_url='http://localhost:7000'
   const handleSubmit = async(e) => {
     e.preventDefault();
-    const res=await fetch(`${base_url}/login`,{
+    const res=await fetch(`${base_url}/admin-login`,{
         method:'post',
         headers:{
             'Content-Type':'application/json'
@@ -23,6 +23,7 @@ function Login() {
     })
     const result=await res.json();
     if(result.success){
+      localStorage.setItem('token',JSON.stringify(result.token))
         navigate('/dashboard')
     }
     else{

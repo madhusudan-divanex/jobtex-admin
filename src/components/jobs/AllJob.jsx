@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function AllJob() {
+    const token=JSON.parse(localStorage.getItem('token'))
     const [allJob, setAllJob] = useState([]);
     const [loading, setLoading] = useState(true)
     const base_url = 'http://localhost:7000';
@@ -11,6 +12,7 @@ function AllJob() {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                
             },
         });
         const result = await res.json();
@@ -38,6 +40,7 @@ function AllJob() {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
+                'Token':token
             },
         });
         const result = await res.json();

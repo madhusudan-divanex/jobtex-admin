@@ -1,6 +1,35 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 
 function AllEmployee() {
+    const token=JSON.parse(localStorage.getItem('token'))
+     const [allEmployee, setAllEmployee] = useState([]);
+        const [loading, setLoading] = useState(true)
+        const base_url = 'http://localhost:7000';
+        const navigate = useNavigate()
+        async function getAllEmployee() {
+            const res = await fetch(`${base_url}/get-all-employee`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Token':token
+                    
+                },
+            });
+            const result = await res.json();
+            if (result.success) {
+                console.log(result)
+                setLoading(false)
+                setAllEmployee(result.employees);
+            } else {
+                alert(result.message);
+            }
+        }
+        useEffect(() => {
+            
+    
+            getAllEmployee();
+        }, []);
   return (
     <div className="container-fluid">
                             
@@ -16,22 +45,31 @@ function AllEmployee() {
                                         <tr>
                                             <th  scope="col">ID</th>
                                             <th  scope="col">Name</th>
-                                            <th  scope="col">Profession</th>
-                                            <th  scope="col">Apply For</th>
-                                            <th  scope="col">Location</th>
+                                            <th  scope="col">Experience</th>
+                                            <th  scope="col">Gender</th>
+                                            <th  scope="col">Current Salary</th>
                                             <th  scope="col">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr >
-                                            <td scope="row">1</td>
-                                            <td>Mahesh</td>
-                                            <td>Project Manager</td>
-                                            <td>Software Developer</td>
-                                            <td>Jaipur</td>
-                                            <td><a href=""> View </a></td>
+                                    {allEmployee.length > 0 ? (
+                                    allEmployee.map((item, key) => (
+                                        <tr key={key}>
+                                            <td scope="row">{key + 1}</td>
+                                            <td>{item.first_name}</td>
+                                            <td>{item.experience}</td>
+                                            <td>{item.gender}</td>
+                                            <td>{item.current_salary}</td>
+                                            
+                                            <td className='d-flex justify-content-around'><Link to={`/dashboard/employee-detail/${item._id}`}>View</Link> </td>
                                         </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="6">No Employee found</td>
+                                    </tr>
+                                )}
 
                                     </tbody>
                                 </table>

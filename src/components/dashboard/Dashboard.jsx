@@ -10,6 +10,7 @@ import Header from './Header';
 import JobDetail from '../jobs/JobDetail';
 import ReportDetail from '../report/ReportDetail';
 function Dashboard() {
+    const token=JSON.parse(localStorage.getItem('token'))
     useEffect(() => {
         feather.replace(); 
     }, []);

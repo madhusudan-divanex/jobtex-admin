@@ -3,8 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 function ReportDetail() {
 
-  
-     
+    const token=JSON.parse(localStorage.getItem('token'))
     const base_url='http://localhost:7000'
     const { reportId } = useParams();
     const navigate=useNavigate()
@@ -16,6 +15,7 @@ function ReportDetail() {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Token':token
                     },
                 });
                 const result = await res.json();
@@ -71,7 +71,8 @@ function ReportDetail() {
               </div>
              
               
-              <button type="submit" className="btn btn-primary" onClick={()=>navigate('/dashboard')}>
+              <button type="submit" className="btn btn-primary" onClick={(e)=>{e.preventDefault()
+                navigate('/dashboard/support-ticket')}}>
                 Close
               </button>
             </form>

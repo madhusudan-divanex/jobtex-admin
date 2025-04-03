@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 
 function Ticket() {
+    const token=JSON.parse(localStorage.getItem('token'))
     const base_url='http://localhost:7000'
     const [allReport, setAllReport] = useState([])
     const formatDate = (dateString) => {
@@ -13,6 +14,7 @@ function Ticket() {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Token':token
                 },
             });
             const result = await res.json();

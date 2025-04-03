@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 
 function JobDetail() {
+    const token=JSON.parse(localStorage.getItem('token'))
     const base_url='http://localhost:7000'
     const { jobId } = useParams();
     const navigate=useNavigate()
@@ -82,7 +83,8 @@ function JobDetail() {
               </div>
               </div>
               
-              <button type="submit" className="btn btn-primary" onClick={()=>navigate('/dashboard')}>
+              <button type="submit" className="btn btn-primary" onClick={(e)=>{e.preventDefault()
+                navigate('/dashboard/all-jobs')}}>
                 Close
               </button>
             </form>

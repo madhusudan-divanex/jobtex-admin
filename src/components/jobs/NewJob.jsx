@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 function NewJob() {
+    const token=JSON.parse(localStorage.getItem('token'))
     const base_url='http://localhost:7000'
     const [jobData, setJobData] = useState({
         title: "",
@@ -24,7 +25,8 @@ function NewJob() {
         const res=await fetch(`${base_url}/create-new-job`,{
           method:'post',
           headers:{
-              'Content-Type':'application/json'
+              'Content-Type':'application/json',
+              'Token':token
           },
           body:JSON.stringify({
             title:jobData.title,
