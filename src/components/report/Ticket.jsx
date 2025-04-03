@@ -62,7 +62,7 @@ function Ticket() {
                                             </td>
                                             <td>{formatDate(item.createdAt)}</td>
                                             
-                                            <td className='d-flex justify-content-around'><Link to={`/dashboard/report-detail/${item._id}`}>View</Link> <a type='button' className='ml-5 text-danger' >Delete</a></td>
+                                            <td className='d-flex justify-content-around'><Link to={`/dashboard/report-detail/${item._id}`} className='link-success link-underline-success link-underline-opacity-50'>View</Link> <a type='button' className='ml-5 text-danger' >Delete</a></td>
                                         </tr>
                                     ))
                                 ) : (

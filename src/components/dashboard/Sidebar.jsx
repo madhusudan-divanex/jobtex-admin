@@ -1,17 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Sidebar() {
+    const navigate=useNavigate()
     return (
         <header className="main-nav">
 
             <nav className='h-100'>
                 <div className="main-navbar h-full">
-                    <div className="left-arrow" id="left-arrow">
+                    {/* <div className="left-arrow" id="left-arrow">
                         <i data-feather="arrow-left" />
-                    </div>
+                    </div> */}
                     <div id="mainnav">
-                        <ul className="nav-menu custom-scrollbar">
+                        <ul className="nav-menu custom-scrollbar h-100">
                             <li className="back-btn">
                                 <div className="mobile-back text-end">
                                     <span>Back</span>
@@ -20,9 +21,39 @@ function Sidebar() {
                             </li>
                             <li className="sidebar-main-title">
                                 <div>
+                                    <h6 >Subscription </h6>
+                                </div>
+                            </li>
+                            <li>
+                                <Link className="nav-link menu-title link-nav" to="/dashboard">
+                                    {/* <i data-feather="headphones" /> */}
+                                    <span>Plan</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Free">
+                                    {/* <i data-feather="headphones" /> */}
+                                    <span>Free</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Standard" >
+                                    {/* <i data-feather="headphones" /> */}
+                                    <span>Standard</span>
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className="nav-link menu-title link-nav" to="/dashboard//plan/Ultra">
+                                    {/* <i data-feather="headphones" /> */}
+                                    <span>Ultra</span>
+                                </Link>
+                            </li>
+                            <li className="sidebar-main-title">
+                                <div>
                                     <h6>Employer </h6>
                                 </div>
                             </li>
+                            
                             <li className="dropdown">
                                 <Link className="nav-link menu-title" to="/dashboard/all-employees">
                                     <span>All Employees</span>
@@ -74,11 +105,13 @@ function Sidebar() {
                                     <span>Support Ticket</span>
                                 </Link>
                             </li>
+                            
+                            
                         </ul>
                     </div>
-                    <div className="right-arrow" id="right-arrow">
+                    {/* <div className="right-arrow" id="right-arrow">
                         <i data-feather="arrow-right" />
-                    </div>
+                    </div> */}
                 </div>
             </nav>
         </header>

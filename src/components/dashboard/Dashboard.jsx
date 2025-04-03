@@ -9,6 +9,8 @@ import Sidebar from './Sidebar';
 import Header from './Header';
 import JobDetail from '../jobs/JobDetail';
 import ReportDetail from '../report/ReportDetail';
+import Plan from '../Plan/Plan';
+import PlanDetail from '../Plan/PlanDetail';
 function Dashboard() {
     const token=JSON.parse(localStorage.getItem('token'))
     useEffect(() => {
@@ -34,7 +36,9 @@ function Dashboard() {
                     {/* Page Sidebar Ends*/}
                     <div className="page-body dashboard-2-main">
                         <Routes>
-                            <Route path="/" element={<AllEmployee />} />
+                            <Route path="/" element={<Plan />} />
+                            <Route path="plan" element={<Plan />} />
+                            <Route path='plan/:plan_type' element={<PlanDetail/>}/>
                             <Route path="create-new-job" element={<NewJob />} />
                             <Route path="all-jobs" element={<AllJob />} />
                             <Route path="all-employees" element={<AllEmployee />} />

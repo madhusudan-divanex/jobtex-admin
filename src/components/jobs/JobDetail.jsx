@@ -14,6 +14,7 @@ function JobDetail() {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Token':token
                     },
                 });
                 const result = await res.json();

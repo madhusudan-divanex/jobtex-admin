@@ -1,6 +1,8 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+    const navigate=useNavigate()
   return (
     <div className="page-main-header">
                     <div className="main-header-right row m-0">
@@ -38,7 +40,10 @@ function Header() {
                                 
                                 <li className="onhover-dropdown p-0">
                                     <button className="btn btn-primary-light" type="button">
-                                        <a href="login_two.html">
+                                        <a href=""  className='link-success link-underline-success link-underline-opacity-25' onClick={()=>{
+                                            localStorage.clear()
+                                            navigate('/')
+                                        }}>
                                             <i data-feather="log-out" />
                                             Log out
                                         </a>
