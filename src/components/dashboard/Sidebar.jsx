@@ -43,7 +43,7 @@ function Sidebar() {
                                 </Link>
                             </li>
                             <li>
-                                <Link className="nav-link menu-title link-nav" to="/dashboard//plan/Ultra">
+                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Ultra">
                                     {/* <i data-feather="headphones" /> */}
                                     <span>Ultra</span>
                                 </Link>

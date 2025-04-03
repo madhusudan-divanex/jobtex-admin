@@ -54,7 +54,7 @@ function Plan() {
         <div className="row">
           {/* Plan 1 */}
           <div className="col-md-4">
-            <div className="card bg-warning text-white text-center p-3" onClick={()=>navigate(`/dashboard/plan/Free`)}>
+            <div className="card bg-warning text-white text-center p-3 cursor-pointer" onClick={()=>navigate(`/dashboard/plan/Free`)}>
               <h2>{Free} Users</h2>
               <p>Free Plan</p>
             </div>
@@ -62,7 +62,7 @@ function Plan() {
 
           {/* Plan 2 */}
           <div className="col-md-4">
-            <div className="card bg-success text-white text-center p-3" onClick={()=>navigate(`/dashboard/plan/Standard`)}>
+            <div className="card bg-success text-white text-center p-3 cursor-pointer" onClick={()=>navigate(`/dashboard/plan/Standard`)}>
               <h2>{Standard} Users</h2>
               <p>Standard Plan</p>
             </div>
@@ -70,7 +70,7 @@ function Plan() {
 
           {/* Plan 3 */}
           <div className="col-md-4">
-            <div className="card bg-danger text-white text-center p-3" onClick={()=>navigate(`/dashboard/plan/Ultra`)}>
+            <div className="card bg-danger text-white text-center p-3 cursor-pointer" onClick={()=>navigate(`/dashboard/plan/Ultra`)}>
               <h2>{Ultra} Users</h2>
               <p>Ultra Plan</p>
             </div>

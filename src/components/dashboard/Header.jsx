@@ -8,7 +8,7 @@ function Header() {
                     <div className="main-header-right row m-0">
                         <div className="main-header-left">
                             <div className="logo-wrapper">
-                                <a href="index.html">
+                                <a href="">
                                     <img
                                         className="img-fluid"
                                         src="../assets/images/logo/logo.png"
@@ -17,7 +17,7 @@ function Header() {
                                 </a>
                             </div>
                             <div className="dark-logo-wrapper">
-                                <a href="index.html">
+                                <a href="">
                                     <img
                                         className="img-fluid"
                                         src="../assets/images/logo/dark-logo.png"

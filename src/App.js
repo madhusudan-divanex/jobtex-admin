@@ -6,6 +6,7 @@ import './assets/css/responsive.css'
 import CreateAccount from './components/loginandsignup/CreateAccount';
 import ForgetPass from './components/loginandsignup/ForgetPass';
 import Dashboard from './components/dashboard/Dashboard';
+import ProtectedRoute from './components/Protected/ProtectedRoute';
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
             {/* login signup forgot pass routes end */}
 
             {/* dashboard start */}
-              <Route path='/dashboard/*' element={<Dashboard/>} />
+              <Route path='/dashboard/*' element={<ProtectedRoute element={Dashboard} />} />
             {/* dashboard end */} 
           </Routes>
       </BrowserRouter>
