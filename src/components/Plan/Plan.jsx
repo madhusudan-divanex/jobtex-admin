@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
-
+import { base_url } from '../../baseUrl';
 function Plan() {
     const token=JSON.parse(localStorage.getItem('token'))
     const [freeEmployee, setFreeEmployee] = useState([]);
     const [standardEmployee, setStandardEmployee] = useState([]);
     const [ultraEmployee, setUltraEmployee] = useState([]);
     const [loading, setLoading] = useState(true)
-    const base_url = 'http://localhost:7000';
+    
     let Free=0
     let Standard=0;
     let Ultra=0;  

@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-
+import { base_url } from '../../baseUrl';
 function EmployeeDetail() {
     const token = JSON.parse(localStorage.getItem('token'))
-    const base_url = 'http://localhost:7000'
+
     const { employeeId } = useParams();
     const navigate = useNavigate()
     const [loading, setLoading] = useState(true)

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import feather from "feather-icons";
-
+import { base_url } from '../../baseUrl';
+import { toast } from "react-toastify";
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const navigate=useNavigate()
-  const base_url='http://localhost:7000'
+  
+  
   const handleSubmit = async(e) => {
     e.preventDefault();
     const res=await fetch(`${base_url}/admin-login`,{
@@ -23,11 +25,16 @@ function Login() {
     })
     const result=await res.json();
     if(result.success){
-      localStorage.setItem('token',JSON.stringify(result.token))
-        navigate('/dashboard')
+      await localStorage.setItem('token',JSON.stringify(result.token))
+      navigate('/dashboard')
+      // if(localStorage.getItem('token')){
+      //   console.log("redirecting to dashboard")
+        // navigate('/dashboard',{ state: { token :result.token} })
+      //}
     }
     else{
-        alert("an error occured")
+      toast.error("Invalid email or password")
+       
     }
 
 };

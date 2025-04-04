@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { base_url } from '../../baseUrl';
 function AllJob() {
     const token=JSON.parse(localStorage.getItem('token'))
     const [allJob, setAllJob] = useState([]);
     const [loading, setLoading] = useState(true)
-    const base_url = 'http://localhost:7000';
+
     const navigate = useNavigate()
     async function getAllJob() {
         const res = await fetch(`${base_url}/get-all-job`, {

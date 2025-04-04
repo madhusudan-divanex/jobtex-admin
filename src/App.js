@@ -7,7 +7,7 @@ import CreateAccount from './components/loginandsignup/CreateAccount';
 import ForgetPass from './components/loginandsignup/ForgetPass';
 import Dashboard from './components/dashboard/Dashboard';
 import ProtectedRoute from './components/Protected/ProtectedRoute';
-
+import { ToastContainer, toast } from 'react-toastify';
 function App() {
   return (
     <>
@@ -20,9 +20,11 @@ function App() {
             {/* login signup forgot pass routes end */}
 
             {/* dashboard start */}
-              <Route path='/dashboard/*' element={<ProtectedRoute element={Dashboard} />} />
+              {/* <Route path='/dashboard/*' element={<ProtectedRoute element={Dashboard} />} /> */}
+              <Route path='/dashboard/*' element={<Dashboard/>} />
             {/* dashboard end */} 
           </Routes>
+          <ToastContainer />
       </BrowserRouter>
     </>
   );

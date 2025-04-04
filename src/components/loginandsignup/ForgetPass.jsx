@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { base_url } from '../../baseUrl';
 function ForgetPass() {
     const [email, setEmail] = useState("");
       const [password, setPassword] = useState("");
       const [rememberMe, setRememberMe] = useState(false);
       const navigate=useNavigate()
-      const base_url='http://localhost:7000'
+   
       const handleSubmit = async(e) => {
         e.preventDefault();
         const res=await fetch(`${base_url}/forgot-password`,{

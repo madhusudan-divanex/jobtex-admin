@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
-
+import { base_url } from '../../baseUrl';
 function Ticket() {
     const token=JSON.parse(localStorage.getItem('token'))
-    const base_url='http://localhost:7000'
+    
     const [allReport, setAllReport] = useState([])
     const formatDate = (dateString) => {
         const date = new Date(dateString);

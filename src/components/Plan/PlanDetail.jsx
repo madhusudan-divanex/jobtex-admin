@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-
+import { base_url } from '../../baseUrl';
 function PlanDetail() {
   const token = JSON.parse(localStorage.getItem('token'))
-  const base_url = 'http://localhost:7000'
+  
   const { plan_type } = useParams();
   const navigate = useNavigate()
   const [allPlan, setAllPlan] = useState([])

@@ -30,38 +30,21 @@ function Sidebar() {
                                     <span>Plan</span>
                                 </Link>
                             </li>
-                            <li>
-                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Free">
-                                    {/* <i data-feather="headphones" /> */}
-                                    <span>Free</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Standard" >
-                                    {/* <i data-feather="headphones" /> */}
-                                    <span>Standard</span>
-                                </Link>
-                            </li>
-                            <li>
-                                <Link className="nav-link menu-title link-nav" to="/dashboard/plan/Ultra">
-                                    {/* <i data-feather="headphones" /> */}
-                                    <span>Ultra</span>
-                                </Link>
-                            </li>
+                            
                             <li className="sidebar-main-title">
                                 <div>
-                                    <h6>Employer </h6>
+                                    <h6>Staff </h6>
                                 </div>
                             </li>
                             
                             <li className="dropdown">
                                 <Link className="nav-link menu-title" to="/dashboard/all-employees">
-                                    <span>All Employees</span>
+                                    <span>Manager</span>
                                 </Link>
                             </li>
                             <li className="dropdown">
                                 <Link className="nav-link menu-title" to="/dashboard/selected-employees">
-                                    <span>Selected Employees</span>
+                                    <span>Ts</span>
                                 </Link>
                             </li>
                             <li className="dropdown">
